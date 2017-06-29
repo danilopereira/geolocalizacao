@@ -22,17 +22,17 @@ public class GeoController {
 	@Autowired
 	CloudantRestClient cloudantRestClient;
 	
-	@RequestMapping(value="/api/v1/registerMaker", method=RequestMethod.POST)
+	@RequestMapping(value="/api/v1/registerMarker", method=RequestMethod.POST)
 	public void registerMarker(@RequestBody @Valid GeoMarker marker){
 		
 	}
 	
-	@RequestMapping(value="/api/v1/getMakers", method=RequestMethod.GET)
+	@RequestMapping(value="/api/v1/getMarkers", method=RequestMethod.GET)
 	public List<GeoMarker> getMarker(){
 		return Arrays.asList(new GeoMarker(new Float(123.0), new Float(0.0), new Date(System.currentTimeMillis())));
 	}
 	
-	@RequestMapping(value="/api/v1/getMaker/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/api/v1/getMarker/{id}", method=RequestMethod.GET)
 	public GeoMarker getMarkerById(@PathVariable String id){
 		Geolocalizacao geolocalizacao = cloudantRestClient.getById(id);
 		return new GeoMarker(geolocalizacao.getLatitude(), geolocalizacao.getLongitude(), new Date(System.currentTimeMillis()));
