@@ -5,7 +5,10 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 public class GeoMarker {
-	
+
+	public GeoMarker() {
+	}
+
 	public GeoMarker(Float longitude, Float latitude, Date markedAt){
 		this.longitude = longitude;
 		this.latitude = latitude;
@@ -18,7 +21,6 @@ public class GeoMarker {
 	@NotNull
 	private Float latitude;
 	
-	@NotNull
 	private Date markedAt;
 	
 	public Float getLongitude() {
